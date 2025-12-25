@@ -1,0 +1,100 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --accent-color: #000000;
+    --box-border: #e5e5e5;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #666;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.result-box {
+    background: #fff;
+    border: 1px solid var(--box-border);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 400;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.result-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.refresh-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-main);
+}
+
+.refresh-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.refresh-btn:active {
+    transform: scale(0.98);
+}
+
+.loader {
+    color: #999;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.75rem;
+    }
+    .result-box {
+        padding: 2rem 1.5rem;
+    }
+}

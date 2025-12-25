@@ -19,6 +19,10 @@ const limiter = rateLimit({
   message: { error: "Too many requests, please try again later. (120 reqs/min/IP)" }
 });
 
+
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
+
 app.use(limiter);
 
 // Random rejection reason endpoint
