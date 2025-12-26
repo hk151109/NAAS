@@ -1,10 +1,26 @@
 :root {
+    /* Dark Mode (Default) */
+    --bg-color: #0f0f0f;
+    --text-color: #ffffff;
+    --accent-color: #ffffff;
+    --accent-text: #000000;
+    --box-bg: #1a1a1a;
+    --box-border: #333333;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --secondary-text: #888888;
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body.light-mode {
+    /* Light Mode */
     --bg-color: #ffffff;
     --text-color: #1a1a1a;
     --accent-color: #000000;
+    --accent-text: #ffffff;
+    --box-bg: #ffffff;
     --box-border: #e5e5e5;
     --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --secondary-text: #666666;
 }
 
 body {
@@ -18,12 +34,59 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
     text-align: center;
     width: 100%;
     max-width: 500px;
+}
+
+/* Top Navigation */
+.top-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+}
+
+.github-link {
+    color: var(--secondary-text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+    opacity: 0.8;
+}
+
+.github-link:hover {
+    color: var(--text-color);
+    opacity: 1;
+}
+
+/* Toggle Button */
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--box-border);
+    color: var(--text-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle:hover {
+    background: var(--box-bg);
 }
 
 header h1 {
@@ -34,13 +97,13 @@ header h1 {
 }
 
 header p {
-    color: #666;
+    color: var(--secondary-text);
     margin-bottom: 2.5rem;
     font-weight: 300;
 }
 
 .result-box {
-    background: #fff;
+    background: var(--box-bg);
     border: 1px solid var(--box-border);
     border-radius: 16px;
     padding: 3rem 2rem;
@@ -53,17 +116,17 @@ header p {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .result-box:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 .refresh-btn {
     background-color: var(--accent-color);
-    color: #fff;
+    color: var(--accent-text);
     border: none;
     padding: 0.8rem 2rem;
     border-radius: 50px;
@@ -84,7 +147,7 @@ header p {
 }
 
 .loader {
-    color: #999;
+    color: var(--secondary-text);
     font-size: 1rem;
     font-style: italic;
 }
@@ -94,7 +157,18 @@ header p {
     header h1 {
         font-size: 1.75rem;
     }
+
     .result-box {
         padding: 2rem 1.5rem;
+    }
+
+    .top-nav {
+        top: 15px;
+        right: 15px;
+        gap: 10px;
+    }
+
+    .github-link span {
+        display: none;
     }
 }
