@@ -32,6 +32,10 @@ app.get('/no', (req, res) => {
   res.json({ reason });
 });
 
+app.get('/loaderio-1f972ddfb36da4f88a8dedf1faa55562.txt', (req, res) => {
+  res.send('loaderio-1f972ddfb36da4f88a8dedf1faa55562');
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`No-as-a-Service is running on port ${PORT}`);
